@@ -7,7 +7,7 @@ import Navbar from "./Components/Navbar";
 function App() {
   return (
     <>
-      <header className="fixed top-0 left-0 w-full bg-[#FA812F] font-bold p-2 text-white z-50">
+      <header className="fixed top-0 left-0 w-full  font-bold p-2 text-white z-50">
         <Navbar />
       </header>
       <main>
