@@ -16,10 +16,11 @@ const Navbar = () => {
 
   const desktopMenuItems = [
     { name: "Home", path: "/" },
-    { name: "Our Story", path: "/ourStory" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+    { name: "Book Now", path: "/bookNow" },
   ];
-
-  const donateButtonPath = "/donate";
 
   const mobileMenuItems = [
     {
@@ -27,19 +28,23 @@ const Navbar = () => {
       path: "/",
     },
     {
-      name: "Our Story",
-      path: "/ourStory",
+      name: "Portfolio",
+      path: "/portfolio",
     },
     {
-      name: "Donate",
-      path: donateButtonPath,
+      name: "Contact",
+      path: "/contact",
+    },
+    {
+      name: "Book Now",
+      path: "/bookNow",
     },
   ];
 
   return (
     <div className="flex justify-between items-center max-w-[1200px] px-4 mx-auto h-16 text-black">
       <Link to="/" className="font-bold text-2xl font-header">
-        Marley Foundation
+        Illusionz by OJAy
       </Link>
       <div className="flex items-center space-x-4 md:space-x-10 font-header">
         {/* Desktop Menu */}
@@ -51,16 +56,9 @@ const Navbar = () => {
               onClick={() => handleItemClick(item.path)}
             >
               <span>{item.name}</span>
-              <span className="absolute left-0 w-0 h-1 bg-[#FAB12F] transition-all group-hover:w-full bottom-[-2px]"></span>
+              <span className="absolute left-0 w-0 h-1 bg-[#0c0c0c] transition-all group-hover:w-full bottom-[-2px]"></span>
             </li>
           ))}
-          {/* Unique Donate Button */}
-          <button
-            className="px-6 py-2 bg-gradient-to-r from-[#FF7E5F] to-[#FAB12F] text-black rounded-full shadow-lg hover:shadow-xl font-bold hover:scale-105 transition-transform"
-            onClick={() => handleItemClick(donateButtonPath)}
-          >
-            Donate Now
-          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -73,11 +71,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-[70%] h-full bg-[#FA812F] text-white ease-in-out duration-500 ${
+        className={`fixed top-0 left-0 w-[70%] h-full bg-[#0e0d0d] text-white ease-in-out duration-500 ${
           nav ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <h1 className="text-2xl font-bold p-6">Marley Foundation</h1>
+        <h1 className="text-2xl font-bold p-6">Illusionz by OJAy</h1>
         <ul className="p-4">
           {mobileMenuItems.map((item, index) => (
             <li
