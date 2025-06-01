@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { RiMenu5Fill } from "react-icons/ri";
+import { RiCloseLargeFill } from "react-icons/ri";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -64,7 +66,7 @@ const Navbar = () => {
         {/* Mobile Menu Toggle */}
         <div onClick={handleNav} className="block md:hidden ml-auto">
           <button className="text-lg font-bold">
-            {nav ? "Close" : "Menu"}
+            {nav ? <RiCloseLargeFill /> : <RiMenu5Fill />}
           </button>
         </div>
       </div>
