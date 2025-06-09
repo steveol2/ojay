@@ -1,4 +1,4 @@
-// // src/components/PortfolioParallax.jsx
+// src/components/Portfolio.jsx
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -13,43 +13,57 @@ export const Portfolio = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"],
+    offset: ["start end", "end start"], // smoother entrance and exit
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]); // smooth parallax motion
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden">
-      {/* Parallax background image */}
+    <section
+      ref={ref}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Background image */}
       <div
-        className="absolute inset-0 bg-fixed bg-center bg-cover z-0"
+        className="absolute inset-0 bg-fixed bg-center bg-cover z-0 transition-all duration-1000"
         style={{
-          backgroundImage: "url('/ojayphoto5.jpg')", // use your image
+          backgroundImage: "url('/ojayphoto5.jpg')",
         }}
-      ></div>
+      />
 
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/60 z-10" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 z-10 transition-opacity duration-1000" />
 
-      {/* Foreground content */}
+      {/* Content */}
       <motion.div
         style={{ y }}
-        className="relative z-20 max-w-5xl mx-auto px-6 py-28 text-white"
+        className="relative z-20 w-full max-w-5xl px-6 py-24 md:py-32 text-white flex flex-col items-center text-center transition-all duration-1000"
       >
-        <h2 className="text-4xl font-semibold mb-12 text-center font-serif">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-6xl font-bold mb-12 font-serif"
+        >
           My Portfolio
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {portfolioItems.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white/10 border border-white/20 p-6 rounded-lg backdrop-blur-sm transition hover:scale-105"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="bg-white/10 border border-white/20 p-6 rounded-lg backdrop-blur-sm transform transition-transform duration-300 hover:scale-105"
             >
               <h3 className="text-2xl font-bold font-serif mb-2">
                 {item.title}
               </h3>
               <p className="text-sm text-gray-300">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.div>

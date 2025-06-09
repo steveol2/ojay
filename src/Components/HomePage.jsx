@@ -21,15 +21,16 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="relative">
       <div
         className="h-screen bg-no-repeat bg-cover bg-center text-white flex items-center justify-center transition-all duration-1000 ease-in-out"
         style={{
           backgroundImage: `url('${backgroundImages[currentImageIndex]}')`,
         }}
       >
-        <h1 className="text-4xl font-bold bg-black/40 px-4 py-2 rounded-lg shadow-lg">
-          Illusions by OJAY
+        <h1 className="text-2xl font-bold bg-black/40 px-4 py-2 rounded-lg shadow-lg">
+          Your human perception is often not reality, it’s just you seeing the
+          world through a lens.
         </h1>
       </div>
       <Portfolio />
