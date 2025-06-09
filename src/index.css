@@ -7,3 +7,7 @@ body,
   height: 100%;
   margin: 0;
 }
+
+@theme {
+  --font-Playfair: "Playfair Display", serif;
+}

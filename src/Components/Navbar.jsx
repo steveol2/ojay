@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center max-w-[1200px] px-4 mx-auto h-16 text-black">
-      <Link to="/" className="font-bold text-2xl font-header">
+      <Link to="/" className="font-bold text-2xl font-header font-Playfair">
         IllusionzbyOJAy
       </Link>
       <div className="flex items-center space-x-4 md:space-x-10 font-header">

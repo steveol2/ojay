@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import { HomePage } from "./Components/HomePage";
+
 import Navbar from "./Components/Navbar";
 
 function App() {
