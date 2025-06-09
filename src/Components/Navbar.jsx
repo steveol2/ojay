@@ -59,7 +59,7 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center max-w-[1200px] px-4 mx-auto h-16 text-black relative z-50">
-      <Link to="/" className="font-bold text-2xl font-header font-Playfair">
+      <Link to="/" className="font-bold text-2xl font-header font-Bonheur">
         IllusionzbyOJAy
       </Link>
 
@@ -93,7 +93,7 @@ const Navbar = () => {
           nav ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <h1 className="text-2xl font-bold p-6">IllusionzbyOJAy</h1>
+        <h1 className="text-2xl font-bold p-6 font-Bonheur">IllusionzbyOJAy</h1>
         <ul className="p-4">
           {mobileMenuItems.map((item, index) => (
             <li
