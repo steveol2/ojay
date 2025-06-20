@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RiMenu5Fill, RiCloseLargeFill } from "react-icons/ri";
-import { FaHome, FaImages, FaPhone, FaCalendarCheck } from "react-icons/fa";
+import {
+  FaHome,
+  FaImages,
+  FaPhone,
+  FaCalendarCheck,
+  FaInstagram,
+  FaFacebook,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -93,19 +101,53 @@ const Navbar = () => {
           nav ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <h1 className="text-2xl font-bold p-6 font-Bonheur">IllusionzbyOJAy</h1>
-        <ul className="p-4">
-          {mobileMenuItems.map((item, index) => (
-            <li
-              key={index}
-              className="p-4 border-b border-white flex items-center cursor-pointer"
-              onClick={() => handleItemClick(item.path)}
+        <div className="flex flex-col justify-between h-full">
+          <div>
+            <h1 className="text-2xl font-bold p-6 font-Bonheur">
+              IllusionzbyOJAy
+            </h1>
+            <ul className="p-4">
+              {mobileMenuItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="p-4 border-b border-white flex items-center cursor-pointer"
+                  onClick={() => handleItemClick(item.path)}
+                >
+                  {item.icon}
+                  <span>{item.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Social Icons at Bottom */}
+          <div className="flex justify-center items-center gap-6 mt-auto pb-6">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
             >
-              {item.icon}
-              <span>{item.name}</span>
-            </li>
-          ))}
-        </ul>
+              <FaInstagram size={20} />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
+            >
+              <FaFacebook size={20} />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
+            >
+              <FaTwitter size={20} />
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Dark overlay when menu is open */}
